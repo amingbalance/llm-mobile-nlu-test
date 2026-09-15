@@ -159,3 +159,10 @@ iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 4/8，開 guided 
 
 - `nlu_crosstest/dev_accounts_*.json`、`dev_categories_*.json` 來自作者記帳 app 的匯出（只保留名稱、群組、類型、幣別；額度、利率等欄位已移除）。**帳戶名稱已匿名化**：銀行名稱以同字數的虛構名稱整體替換（北辰、青松、南星、西嶺、東海、京銀、四海商銀、郵儲），prompt、題組、程式 enum、結果檔與報告全部一致替換，prompt 字數維持 3,434，但結果檔內記錄的 `system_prompt_sha256` 是替換前的值。要換成自己的清單：改這兩個檔 → 重新生成 prompt 內的清單段落與 `CrossTestSchema.kt` 的 enum → 跑 `tools/sync_crosstest.sh` → 視為新版本 prompt，兩平台同步重跑。
 - 結果 JSON 內含模型原始輸出（`raw_output`），格式見 `nlu_crosstest/ios_test_design_spec.md` §7。
+
+---
+
+## 6. 授權
+
+MIT License，見 [`LICENSE`](LICENSE)。程式碼、測試包與結果都可以自由取用、驗證、重跑；歡迎回報你在其他裝置 / OS 版本上的結果。
+本專案是 **AMing Balance** 記帳 app「語音記帳」功能的前期驗證。
