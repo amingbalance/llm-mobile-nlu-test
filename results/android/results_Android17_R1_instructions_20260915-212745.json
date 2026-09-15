@@ -1,0 +1,501 @@
+{
+ "env": {
+  "device": "Pixel 11 Pro XL (kodiak, Tensor G6)",
+  "os": "Android 17 (CD1A.260905.001.B1)",
+  "framework": "ML Kit GenAI Prompt API genai-prompt:1.0.0-beta4 (AICore preview, nano-v4-full)",
+  "model_id_or_availability": "nano-v4-full",
+  "system_prompt_placement": "instructions",
+  "decoding": {
+   "temperature": 0,
+   "topK": 1,
+   "maxOutputTokens": 512
+  },
+  "cloud_fallback_disabled_how": "AICore is on-device only; no cloud path in Prompt API",
+  "session_freshness": "stateless generateContent per request (no conversation state); same client reused",
+  "r2_date_resolver": null,
+  "r2_schema_note": null
+ },
+ "cold_start_ms": 1806,
+ "runs": [
+  {
+   "latency_ms": 3103,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_EXPENSE",
+    "amount": 102,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "飲食>午餐",
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_EXPENSE\",\"confidence\":0.95,\"original_text\":\"午餐花了一百二 用現金\",\"normalized_text\":\"新增支出 102 元,分類「飲食>午餐」\",\"slots\":{\"amount\":102,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":\"飲食>午餐\",\"date\":null,\"note\":null}}",
+   "case_id": "c1",
+   "run": 1
+  },
+  {
+   "latency_ms": 3064,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_EXPENSE",
+    "amount": 102,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "飲食>午餐",
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_EXPENSE\",\"confidence\":0.95,\"original_text\":\"午餐花了一百二 用現金\",\"normalized_text\":\"新增支出 102 元,分類「飲食>午餐」\",\"slots\":{\"amount\":102,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":\"飲食>午餐\",\"date\":null,\"note\":null}}",
+   "case_id": "c1",
+   "run": 2
+  },
+  {
+   "latency_ms": 3105,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_EXPENSE",
+    "amount": 102,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "飲食>午餐",
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_EXPENSE\",\"confidence\":0.95,\"original_text\":\"午餐花了一百二 用現金\",\"normalized_text\":\"新增支出 102 元,分類「飲食>午餐」\",\"slots\":{\"amount\":102,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":\"飲食>午餐\",\"date\":null,\"note\":null}}",
+   "case_id": "c1",
+   "run": 3
+  },
+  {
+   "latency_ms": 3193,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_INCOME",
+    "amount": 58000,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "薪資>本薪",
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_INCOME\",\"confidence\":0.98,\"original_text\":\"薪水入帳五萬八\",\"normalized_text\":\"新增收入 58000 元,分類「薪資>本薪」\",\"slots\":{\"amount\":58000,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":\"薪資>本薪\",\"date\":null,\"note\":null}}",
+   "case_id": "c2",
+   "run": 1
+  },
+  {
+   "latency_ms": 3182,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_INCOME",
+    "amount": 58000,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "薪資>本薪",
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_INCOME\",\"confidence\":0.98,\"original_text\":\"薪水入帳五萬八\",\"normalized_text\":\"新增收入 58000 元,分類「薪資>本薪」\",\"slots\":{\"amount\":58000,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":\"薪資>本薪\",\"date\":null,\"note\":null}}",
+   "case_id": "c2",
+   "run": 2
+  },
+  {
+   "latency_ms": 3182,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_INCOME",
+    "amount": 58000,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "薪資>本薪",
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_INCOME\",\"confidence\":0.98,\"original_text\":\"薪水入帳五萬八\",\"normalized_text\":\"新增收入 58000 元,分類「薪資>本薪」\",\"slots\":{\"amount\":58000,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":\"薪資>本薪\",\"date\":null,\"note\":null}}",
+   "case_id": "c2",
+   "run": 3
+  },
+  {
+   "latency_ms": 3139,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "amount": null,
+    "price": 1085,
+    "currency": null,
+    "stock": "台積電",
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"UPDATE_STOCK_PRICE\",\"confidence\":0.95,\"original_text\":\"台積電改成一千零八十五\",\"normalized_text\":\"更新「台積電」股價為 1085\",\"slots\":{\"amount\":null,\"currency\":null,\"price\":1085,\"stock\":\"台積電\",\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c3",
+   "run": 1
+  },
+  {
+   "latency_ms": 3193,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "amount": null,
+    "price": 1085,
+    "currency": null,
+    "stock": "台積電",
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"UPDATE_STOCK_PRICE\",\"confidence\":0.95,\"original_text\":\"台積電改成一千零八十五\",\"normalized_text\":\"更新「台積電」股價為 1085\",\"slots\":{\"amount\":null,\"currency\":null,\"price\":1085,\"stock\":\"台積電\",\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c3",
+   "run": 2
+  },
+  {
+   "latency_ms": 3206,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "amount": null,
+    "price": 1085,
+    "currency": null,
+    "stock": "台積電",
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"UPDATE_STOCK_PRICE\",\"confidence\":0.95,\"original_text\":\"台積電改成一千零八十五\",\"normalized_text\":\"更新「台積電」股價為 1085\",\"slots\":{\"amount\":null,\"currency\":null,\"price\":1085,\"stock\":\"台積電\",\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c3",
+   "run": 3
+  },
+  {
+   "latency_ms": 3218,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "amount": null,
+    "price": 21.9,
+    "currency": null,
+    "stock": "00878",
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"UPDATE_STOCK_PRICE\",\"confidence\":0.95,\"original_text\":\"00878 收在二十一塊九\",\"normalized_text\":\"更新「00878」股價為 21.9\",\"slots\":{\"amount\":null,\"currency\":null,\"price\":21.9,\"stock\":\"00878\",\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c4",
+   "run": 1
+  },
+  {
+   "latency_ms": 3190,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "amount": null,
+    "price": 21.9,
+    "currency": null,
+    "stock": "00878",
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"UPDATE_STOCK_PRICE\",\"confidence\":0.95,\"original_text\":\"00878 收在二十一塊九\",\"normalized_text\":\"更新「00878」股價為 21.9\",\"slots\":{\"amount\":null,\"currency\":null,\"price\":21.9,\"stock\":\"00878\",\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c4",
+   "run": 2
+  },
+  {
+   "latency_ms": 3218,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "amount": null,
+    "price": 21.9,
+    "currency": null,
+    "stock": "00878",
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"UPDATE_STOCK_PRICE\",\"confidence\":0.95,\"original_text\":\"00878 收在二十一塊九\",\"normalized_text\":\"更新「00878」股價為 21.9\",\"slots\":{\"amount\":null,\"currency\":null,\"price\":21.9,\"stock\":\"00878\",\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c4",
+   "run": 3
+  },
+  {
+   "latency_ms": 3236,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_GOLD_PRICE",
+    "amount": null,
+    "price": 3320,
+    "currency": "USD",
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"UPDATE_GOLD_PRICE\",\"confidence\":0.98,\"original_text\":\"金價一盎司三千三百二十美金\",\"normalized_text\":\"更新黃金價格為每盎司 3320 美金\",\"slots\":{\"amount\":null,\"currency\":\"USD\",\"price\":3320,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c5",
+   "run": 1
+  },
+  {
+   "latency_ms": 3210,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_GOLD_PRICE",
+    "amount": null,
+    "price": 3320,
+    "currency": "USD",
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"UPDATE_GOLD_PRICE\",\"confidence\":0.98,\"original_text\":\"金價一盎司三千三百二十美金\",\"normalized_text\":\"更新黃金價格為每盎司 3320 美金\",\"slots\":{\"amount\":null,\"currency\":\"USD\",\"price\":3320,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c5",
+   "run": 2
+  },
+  {
+   "latency_ms": 3263,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_GOLD_PRICE",
+    "amount": null,
+    "price": 3320,
+    "currency": "USD",
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"UPDATE_GOLD_PRICE\",\"confidence\":0.98,\"original_text\":\"金價一盎司三千三百二十美金\",\"normalized_text\":\"更新黃金價格為每盎司 3320 美金\",\"slots\":{\"amount\":null,\"currency\":\"USD\",\"price\":3320,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c5",
+   "run": 3
+  },
+  {
+   "latency_ms": 4106,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_EXPENSE",
+    "amount": 360,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": "南星信用卡",
+    "from_account": null,
+    "to_account": null,
+    "category": "娛樂>影音\/遊戲",
+    "date": "2026-09-11",
+    "note": "看電影"
+   },
+   "raw_output": "{\"intent\":\"ADD_EXPENSE\",\"confidence\":0.95,\"original_text\":\"上週五看電影三百六 刷南星卡\",\"normalized_text\":\"新增支出 360 元,帳戶「南星信用卡」,分類「娛樂>影音\/遊戲」,日期 2026-09-11\",\"slots\":{\"amount\":360,\"currency\":null,\"price\":null,\"stock\":null,\"account\":\"南星信用卡\",\"from_account\":null,\"to_account\":null,\"category\":\"娛樂>影音\/遊戲\",\"date\":\"2026-09-11\",\"note\":\"看電影\"}}",
+   "case_id": "c6",
+   "run": 1
+  },
+  {
+   "latency_ms": 4079,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_EXPENSE",
+    "amount": 360,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": "南星信用卡",
+    "from_account": null,
+    "to_account": null,
+    "category": "娛樂>影音\/遊戲",
+    "date": "2026-09-11",
+    "note": "看電影"
+   },
+   "raw_output": "{\"intent\":\"ADD_EXPENSE\",\"confidence\":0.95,\"original_text\":\"上週五看電影三百六 刷南星卡\",\"normalized_text\":\"新增支出 360 元,帳戶「南星信用卡」,分類「娛樂>影音\/遊戲」,日期 2026-09-11\",\"slots\":{\"amount\":360,\"currency\":null,\"price\":null,\"stock\":null,\"account\":\"南星信用卡\",\"from_account\":null,\"to_account\":null,\"category\":\"娛樂>影音\/遊戲\",\"date\":\"2026-09-11\",\"note\":\"看電影\"}}",
+   "case_id": "c6",
+   "run": 2
+  },
+  {
+   "latency_ms": 4137,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_EXPENSE",
+    "amount": 360,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": "南星信用卡",
+    "from_account": null,
+    "to_account": null,
+    "category": "娛樂>影音\/遊戲",
+    "date": "2026-09-11",
+    "note": "看電影"
+   },
+   "raw_output": "{\"intent\":\"ADD_EXPENSE\",\"confidence\":0.95,\"original_text\":\"上週五看電影三百六 刷南星卡\",\"normalized_text\":\"新增支出 360 元,帳戶「南星信用卡」,分類「娛樂>影音\/遊戲」,日期 2026-09-11\",\"slots\":{\"amount\":360,\"currency\":null,\"price\":null,\"stock\":null,\"account\":\"南星信用卡\",\"from_account\":null,\"to_account\":null,\"category\":\"娛樂>影音\/遊戲\",\"date\":\"2026-09-11\",\"note\":\"看電影\"}}",
+   "case_id": "c6",
+   "run": 3
+  },
+  {
+   "latency_ms": 3284,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_TRANSFER",
+    "amount": 23000,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": "西嶺銀",
+    "to_account": "現金",
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_TRANSFER\",\"confidence\":0.95,\"original_text\":\"從西嶺轉兩萬三到現金\",\"normalized_text\":\"從「西嶺銀」轉帳 23000 元到「現金」\",\"slots\":{\"amount\":23000,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":\"西嶺銀\",\"to_account\":\"現金\",\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c7",
+   "run": 1
+  },
+  {
+   "latency_ms": 3354,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_TRANSFER",
+    "amount": 23000,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": "西嶺銀",
+    "to_account": "現金",
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_TRANSFER\",\"confidence\":0.95,\"original_text\":\"從西嶺轉兩萬三到現金\",\"normalized_text\":\"從「西嶺銀」轉帳 23000 元到「現金」\",\"slots\":{\"amount\":23000,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":\"西嶺銀\",\"to_account\":\"現金\",\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c7",
+   "run": 2
+  },
+  {
+   "latency_ms": 3381,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_TRANSFER",
+    "amount": 23000,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": "西嶺銀",
+    "to_account": "現金",
+    "category": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_TRANSFER\",\"confidence\":0.95,\"original_text\":\"從西嶺轉兩萬三到現金\",\"normalized_text\":\"從「西嶺銀」轉帳 23000 元到「現金」\",\"slots\":{\"amount\":23000,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":\"西嶺銀\",\"to_account\":\"現金\",\"category\":null,\"date\":null,\"note\":null}}",
+   "case_id": "c7",
+   "run": 3
+  },
+  {
+   "latency_ms": 3498,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_INCOME",
+    "amount": 1500,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "投資收益>股息",
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_INCOME\",\"confidence\":0.95,\"original_text\":\"股息入帳一千五百塊\",\"normalized_text\":\"新增收入 1500 元,分類「投資收益>股息」\",\"slots\":{\"amount\":1500,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":\"投資收益>股息\",\"date\":null,\"note\":null}}",
+   "case_id": "c8",
+   "run": 1
+  },
+  {
+   "latency_ms": 3542,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_INCOME",
+    "amount": 1500,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "投資收益>股息",
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_INCOME\",\"confidence\":0.95,\"original_text\":\"股息入帳一千五百塊\",\"normalized_text\":\"新增收入 1500 元,分類「投資收益>股息」\",\"slots\":{\"amount\":1500,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":\"投資收益>股息\",\"date\":null,\"note\":null}}",
+   "case_id": "c8",
+   "run": 2
+  },
+  {
+   "latency_ms": 3535,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_INCOME",
+    "amount": 1500,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "投資收益>股息",
+    "date": null,
+    "note": null
+   },
+   "raw_output": "{\"intent\":\"ADD_INCOME\",\"confidence\":0.95,\"original_text\":\"股息入帳一千五百塊\",\"normalized_text\":\"新增收入 1500 元,分類「投資收益>股息」\",\"slots\":{\"amount\":1500,\"currency\":null,\"price\":null,\"stock\":null,\"account\":null,\"from_account\":null,\"to_account\":null,\"category\":\"投資收益>股息\",\"date\":null,\"note\":null}}",
+   "case_id": "c8",
+   "run": 3
+  }
+ ]
+}

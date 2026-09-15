@@ -1,0 +1,189 @@
+{
+ "env": {
+  "device": "Pixel 11 Pro XL (kodiak, Tensor G6)",
+  "os": "Android 17 (CD1A.260905.001.B1)",
+  "framework": "ML Kit GenAI Prompt API genai-prompt:1.0.0-beta4 (AICore preview, nano-v4-full)",
+  "model_id_or_availability": "nano-v4-full",
+  "system_prompt_placement": "instructions",
+  "decoding": {
+   "temperature": 0,
+   "topK": 1,
+   "maxOutputTokens": 512
+  },
+  "cloud_fallback_disabled_how": "AICore is on-device only; no cloud path in Prompt API",
+  "session_freshness": "stateless generateContent per request (no conversation state); same client reused",
+  "r2_date_resolver": "CrossTest.resolveDate, today fixed to 2026-09-15, week starts Monday; supports 昨天\/前天\/大前天\/今天\/明天\/後天、N天前後、(上上|上|這|本|下)(週|星期|禮拜)X、單獨 週X=最近一次(含今天)、M\/D、M月D日、YYYY-MM-DD、N號",
+  "r2_schema_note": "confidence\/normalized_text 不在 schema(不計分,spec §5 允許)"
+ },
+ "cold_start_ms": 2992,
+ "runs": [
+  {
+   "latency_ms": 3545,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_EXPENSE",
+    "amount": 102,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "飲食>午餐",
+    "date_text": "2026-09-15",
+    "date": "2026-09-15",
+    "note": null
+   },
+   "raw_output": "VoiceIntentOut(intent=ADD_EXPENSE, amount=102.0, price=null, currency=null, stock=null, account=null, from_account=null, to_account=null, category=飲食>午餐, date_text=2026-09-15, note=null)",
+   "case_id": "c1",
+   "run": 1
+  },
+  {
+   "latency_ms": 2869,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_INCOME",
+    "amount": 58000,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "薪資>本薪",
+    "date_text": "2026-09-15",
+    "date": "2026-09-15",
+    "note": null
+   },
+   "raw_output": "VoiceIntentOut(intent=ADD_INCOME, amount=58000.0, price=null, currency=null, stock=null, account=null, from_account=null, to_account=null, category=薪資>本薪, date_text=2026-09-15, note=null)",
+   "case_id": "c2",
+   "run": 1
+  },
+  {
+   "latency_ms": 2671,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "amount": null,
+    "price": 1085,
+    "currency": null,
+    "stock": "台積電",
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date_text": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "VoiceIntentOut(intent=UPDATE_STOCK_PRICE, amount=null, price=1085.0, currency=null, stock=台積電, account=null, from_account=null, to_account=null, category=null, date_text=null, note=null)",
+   "case_id": "c3",
+   "run": 1
+  },
+  {
+   "latency_ms": 2588,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "amount": null,
+    "price": 21.9,
+    "currency": null,
+    "stock": "00878",
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date_text": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "VoiceIntentOut(intent=UPDATE_STOCK_PRICE, amount=null, price=21.9, currency=null, stock=00878, account=null, from_account=null, to_account=null, category=null, date_text=null, note=null)",
+   "case_id": "c4",
+   "run": 1
+  },
+  {
+   "latency_ms": 2431,
+   "json_valid": true,
+   "parsed": {
+    "intent": "UPDATE_GOLD_PRICE",
+    "amount": null,
+    "price": 3320,
+    "currency": "USD",
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": null,
+    "date_text": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "VoiceIntentOut(intent=UPDATE_GOLD_PRICE, amount=null, price=3320.0, currency=USD, stock=null, account=null, from_account=null, to_account=null, category=null, date_text=null, note=null)",
+   "case_id": "c5",
+   "run": 1
+  },
+  {
+   "latency_ms": 2868,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_EXPENSE",
+    "amount": 360,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": "南星信用卡",
+    "from_account": null,
+    "to_account": null,
+    "category": "娛樂>影音\/遊戲",
+    "date_text": "2026-09-11",
+    "date": "2026-09-11",
+    "note": "看電影"
+   },
+   "raw_output": "VoiceIntentOut(intent=ADD_EXPENSE, amount=360.0, price=null, currency=null, stock=null, account=南星信用卡, from_account=null, to_account=null, category=娛樂>影音\/遊戲, date_text=2026-09-11, note=看電影)",
+   "case_id": "c6",
+   "run": 1
+  },
+  {
+   "latency_ms": 2448,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_TRANSFER",
+    "amount": 23000,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": "西嶺銀",
+    "to_account": null,
+    "category": null,
+    "date_text": null,
+    "date": null,
+    "note": null
+   },
+   "raw_output": "VoiceIntentOut(intent=ADD_TRANSFER, amount=23000.0, price=null, currency=null, stock=null, account=null, from_account=西嶺銀, to_account=null, category=null, date_text=null, note=null)",
+   "case_id": "c7",
+   "run": 1
+  },
+  {
+   "latency_ms": 2820,
+   "json_valid": true,
+   "parsed": {
+    "intent": "ADD_INCOME",
+    "amount": 1500,
+    "price": null,
+    "currency": null,
+    "stock": null,
+    "account": null,
+    "from_account": null,
+    "to_account": null,
+    "category": "投資收益>股息",
+    "date_text": "今天",
+    "date": "2026-09-15",
+    "note": null
+   },
+   "raw_output": "VoiceIntentOut(intent=ADD_INCOME, amount=1500.0, price=null, currency=null, stock=null, account=null, from_account=null, to_account=null, category=投資收益>股息, date_text=今天, note=null)",
+   "case_id": "c8",
+   "run": 1
+  }
+ ]
+}

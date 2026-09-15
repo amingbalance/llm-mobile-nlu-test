@@ -1,0 +1,565 @@
+{
+  "version": 2,
+  "icon_set": "material_symbols",
+  "exported_at": "2026-08-22",
+  "source": "app.aming.balance.dev (DB v38)",
+  "categories": [
+    {
+      "id": "2b06d1e3-c9e2-478f-a8f3-9d3eb3cd1fb3",
+      "name": "飲食",
+      "icon": "restaurant",
+      "sortOrder": 0,
+      "color": "orange",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "e348ed37-ae49-4d14-af13-71d4626ffe52",
+          "name": "早餐",
+          "icon": "bakery_dining",
+          "sortOrder": 0
+        },
+        {
+          "id": "5059e782-807b-414b-8b23-c7c6628457ea",
+          "name": "午餐",
+          "icon": "lunch_dining",
+          "sortOrder": 1
+        },
+        {
+          "id": "4448c994-ab1b-4855-8eac-e1a937236164",
+          "name": "晚餐",
+          "icon": "dinner_dining",
+          "sortOrder": 2
+        },
+        {
+          "id": "82507c0a-53b8-446b-b666-e9b537ce7416",
+          "name": "飲料/咖啡",
+          "icon": "local_cafe",
+          "sortOrder": 3
+        },
+        {
+          "id": "56594c5e-3d50-4d23-905e-ff947157dd74",
+          "name": "宵夜/點心",
+          "icon": "icecream",
+          "sortOrder": 4
+        },
+        {
+          "id": "26a1fb4d-4401-4f50-83c8-f15baddd6618",
+          "name": "食材採買",
+          "icon": "grocery",
+          "sortOrder": 5
+        }
+      ]
+    },
+    {
+      "id": "981d87ed-8249-4853-9b89-ec453991dc83",
+      "name": "交通",
+      "icon": "directions_car",
+      "sortOrder": 1,
+      "color": "blue",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "da92d122-e0bd-42f4-881a-678bd1d34cd3",
+          "name": "大眾運輸",
+          "icon": "directions_transit",
+          "sortOrder": 0
+        },
+        {
+          "id": "ad8f2454-0281-4754-af2f-a73e192876ec",
+          "name": "計程車/叫車",
+          "icon": "local_taxi",
+          "sortOrder": 1
+        },
+        {
+          "id": "6e322e78-3a0e-4b94-b972-08bfb37423a3",
+          "name": "加油",
+          "icon": "local_gas_station",
+          "sortOrder": 2
+        },
+        {
+          "id": "4227f4e0-5ef3-40b6-ba02-54ce4b95ccad",
+          "name": "停車/過路費",
+          "icon": "local_parking",
+          "sortOrder": 3
+        },
+        {
+          "id": "aefcc43b-b00b-42c9-a2f4-a5ae57c4338d",
+          "name": "車輛保養",
+          "icon": "car_repair",
+          "sortOrder": 4
+        }
+      ]
+    },
+    {
+      "id": "1e3151d7-1d5a-47d3-a0f8-f0894a0e39f1",
+      "name": "購物",
+      "icon": "shopping_bag",
+      "sortOrder": 2,
+      "color": "red",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "f13b00a3-f559-4c1a-8756-eaf0894f90d5",
+          "name": "日用品",
+          "icon": "cleaning_services",
+          "sortOrder": 0
+        },
+        {
+          "id": "a5d58416-949e-48ce-bcf6-dac4af302035",
+          "name": "服飾",
+          "icon": "checkroom",
+          "sortOrder": 1
+        },
+        {
+          "id": "13e81c19-3aa8-4e6c-a166-35105fdd64b6",
+          "name": "美妝保養",
+          "icon": "health_and_safety",
+          "sortOrder": 2
+        },
+        {
+          "id": "1ad4a357-ef04-4653-9106-fd7c20bf672e",
+          "name": "3C/家電",
+          "icon": "devices",
+          "sortOrder": 3
+        },
+        {
+          "id": "cf2db0c4-b03d-43d7-b971-28dca9562222",
+          "name": "居家用品",
+          "icon": "home",
+          "sortOrder": 4
+        }
+      ]
+    },
+    {
+      "id": "67ad4227-12a5-4d36-ac22-41d5bb9d6f9e",
+      "name": "居住",
+      "icon": "home",
+      "sortOrder": 3,
+      "color": "indigo",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "059820ea-426f-4b99-9b8d-850a4ca5ec99",
+          "name": "房租/管理費",
+          "icon": "apartment",
+          "sortOrder": 0
+        },
+        {
+          "id": "beb56e12-afc5-4f5a-a3af-016294b8ef0e",
+          "name": "水費",
+          "icon": "water_drop",
+          "sortOrder": 1
+        },
+        {
+          "id": "4c99fee3-2dee-402d-96ac-1f2007b43fb4",
+          "name": "電費",
+          "icon": "bolt",
+          "sortOrder": 2
+        },
+        {
+          "id": "e35b134d-73b1-40ce-8ec6-04e73f9e9b7d",
+          "name": "瓦斯費",
+          "icon": "local_fire_department",
+          "sortOrder": 3
+        },
+        {
+          "id": "ce039a56-c21c-46fb-bee9-12b5e8721e85",
+          "name": "網路/電話",
+          "icon": "wifi",
+          "sortOrder": 4
+        },
+        {
+          "id": "5f8cb3b1-ac73-45c7-8a7a-1e8ed782dff6",
+          "name": "有線電視",
+          "icon": "tv",
+          "sortOrder": 5
+        }
+      ]
+    },
+    {
+      "id": "fda3ac85-04d0-4605-8a7d-563667662ee7",
+      "name": "醫療健康",
+      "icon": "local_hospital",
+      "sortOrder": 4,
+      "color": "teal",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "8c1e0fb9-1e97-4559-8c96-b3e7edb43504",
+          "name": "看診/掛號",
+          "icon": "stethoscope",
+          "sortOrder": 0
+        },
+        {
+          "id": "cf65db87-b0d5-4a30-a102-2bcda81a6903",
+          "name": "藥品",
+          "icon": "medication",
+          "sortOrder": 1
+        },
+        {
+          "id": "df961d94-6f8e-4ce5-ba35-18faa120c809",
+          "name": "保健品",
+          "icon": "health_metrics",
+          "sortOrder": 2
+        },
+        {
+          "id": "cccf943c-2299-4d24-bb7f-38ff0dc0ec97",
+          "name": "健身/運動",
+          "icon": "fitness_center",
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "id": "36fff381-045b-48eb-aa39-d0f2e931a48b",
+      "name": "娛樂",
+      "icon": "sports_esports",
+      "sortOrder": 5,
+      "color": "purple",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "4fd1f5fc-7f58-4bde-b95c-15bc2b56040b",
+          "name": "影音/遊戲",
+          "icon": "movie",
+          "sortOrder": 0
+        },
+        {
+          "id": "7727c9b0-a5eb-4d4c-a7e8-fb3e540e6093",
+          "name": "旅遊",
+          "icon": "flight",
+          "sortOrder": 1
+        },
+        {
+          "id": "1e4d98a8-26f6-4118-aedc-1163a269900f",
+          "name": "嗜好",
+          "icon": "interests",
+          "sortOrder": 2
+        },
+        {
+          "id": "7a3810c2-d936-4edb-bd3c-affa5868c4b3",
+          "name": "展演/活動",
+          "icon": "confirmation_number",
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "id": "e9e47d5d-184c-43c6-be34-10e040bcdf81",
+      "name": "訂閱服務",
+      "icon": "subscriptions",
+      "sortOrder": 6,
+      "color": "pink",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "2f815ae9-744a-4d19-9a9f-65ee996ec09f",
+          "name": "影音/音樂",
+          "icon": "play_circle",
+          "sortOrder": 0
+        },
+        {
+          "id": "27dee90a-ea15-4ab8-a5db-f2380f7197fa",
+          "name": "AI/工具",
+          "icon": "smart_toy",
+          "sortOrder": 1
+        },
+        {
+          "id": "5bbda25a-0829-4ce6-857b-1fa7b1b569d6",
+          "name": "雲端/儲存",
+          "icon": "cloud",
+          "sortOrder": 2
+        },
+        {
+          "id": "6d222ec4-1478-4d16-becb-deeec621e9dc",
+          "name": "工作軟體",
+          "icon": "work",
+          "sortOrder": 3
+        },
+        {
+          "id": "18e60012-b3bb-4a50-a940-940f5d544643",
+          "name": "會員制",
+          "icon": "card_membership",
+          "sortOrder": 4
+        },
+        {
+          "id": "2935caf9-d532-4b8f-b3c9-6f82a6662aba",
+          "name": "網域",
+          "icon": "language",
+          "sortOrder": 5
+        }
+      ]
+    },
+    {
+      "id": "05bfbca7-ac8f-4fb8-a1ae-a1ea516be894",
+      "name": "人情",
+      "icon": "volunteer_activism",
+      "sortOrder": 7,
+      "color": "amber",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "e2908b92-39c2-4ec8-89b3-31b14a82b9c9",
+          "name": "紅白包",
+          "icon": "redeem",
+          "sortOrder": 0
+        },
+        {
+          "id": "63883b97-788e-4439-bb98-b6c0fa158e90",
+          "name": "禮物",
+          "icon": "card_giftcard",
+          "sortOrder": 1
+        },
+        {
+          "id": "ade6b996-1b9a-4582-a29f-2e6f00eed6e7",
+          "name": "捐款",
+          "icon": "favorite",
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "id": "82c32ca7-ff46-41ab-b3e0-986ef5599698",
+      "name": "教育學習",
+      "icon": "school",
+      "sortOrder": 8,
+      "color": "cyan",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "bbd47a4c-68b9-4652-ad18-eff438196999",
+          "name": "書籍",
+          "icon": "menu_book",
+          "sortOrder": 0
+        },
+        {
+          "id": "012b1fa9-8d6b-45ff-a0d9-bf4e3870b00f",
+          "name": "課程/進修",
+          "icon": "cast_for_education",
+          "sortOrder": 1
+        },
+        {
+          "id": "200f1f3c-9bb1-48dc-a663-015cdbd51254",
+          "name": "文具",
+          "icon": "edit",
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "id": "c55af3ac-a833-4c82-b66a-d6084c150490",
+      "name": "金融費用",
+      "icon": "account_balance",
+      "sortOrder": 9,
+      "color": "green",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "7fb9709a-a3ba-4627-8e5a-d87a2e5ca7e6",
+          "name": "手續費",
+          "icon": "receipt_long",
+          "sortOrder": 0
+        },
+        {
+          "id": "d9786225-bb19-43c1-bf3d-9f8a7703d352",
+          "name": "利息支出",
+          "icon": "percent",
+          "sortOrder": 1
+        },
+        {
+          "id": "7709f47f-a0b7-4fc6-9b84-091e1490c0c7",
+          "name": "保險費",
+          "icon": "shield",
+          "sortOrder": 2
+        },
+        {
+          "id": "bcdd523c-0c00-4839-993d-35e462107c12",
+          "name": "稅金",
+          "icon": "gavel",
+          "sortOrder": 3
+        }
+      ]
+    },
+    {
+      "id": "ebbb1a16-e0e5-4482-8bd1-bd972e59ddea",
+      "name": "寵物",
+      "icon": "pets",
+      "sortOrder": 10,
+      "color": "brown",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "362b2547-cf6f-45d9-bd92-54f159745180",
+          "name": "飼料/用品",
+          "icon": "nutrition",
+          "sortOrder": 0
+        },
+        {
+          "id": "f814da3f-5bc2-4790-bc9e-9ed2eba9c345",
+          "name": "醫療/美容",
+          "icon": "pets",
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "id": "a22b45af-78f6-4f60-835d-ef96a8edef38",
+      "name": "雜支",
+      "icon": "more_horiz",
+      "sortOrder": 11,
+      "color": "slate",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "ef9fe673-bba6-4038-bf62-a08559be6b6e",
+          "name": "零用金",
+          "icon": "payments",
+          "sortOrder": 0
+        },
+        {
+          "id": "1fb26129-a103-44cb-b5aa-ddca906e0ee8",
+          "name": "其他",
+          "icon": "category",
+          "sortOrder": 1
+        }
+      ]
+    },
+    {
+      "id": "eb730d40-f19f-4821-a808-cfeb3ed1adaf",
+      "name": "投資損失",
+      "icon": "trending_down",
+      "sortOrder": 12,
+      "color": "red",
+      "type": "EXPENSE",
+      "children": [
+        {
+          "id": "f424c886-3a2c-423d-9dd1-f52628fc0ffc",
+          "name": "股票損失",
+          "icon": "trending_down",
+          "sortOrder": 0
+        },
+        {
+          "id": "cd93318a-cf04-4231-bd69-4157b75405cb",
+          "name": "黃金損失",
+          "icon": "trending_down",
+          "sortOrder": 0,
+          "color": "cyan"
+        }
+      ]
+    },
+    {
+      "id": "c36ceb92-04b8-41ea-a4bb-d401f78b8886",
+      "name": "薪資",
+      "icon": "payments",
+      "sortOrder": 0,
+      "type": "INCOME",
+      "children": [
+        {
+          "id": "971a26fa-ca9c-4c04-8781-143b124d06e2",
+          "name": "本薪",
+          "icon": "account_balance_wallet",
+          "sortOrder": 0
+        },
+        {
+          "id": "45ad5ec6-839b-40bc-860e-de18ca4d33f3",
+          "name": "獎金/分紅",
+          "icon": "savings",
+          "sortOrder": 1
+        },
+        {
+          "id": "904db9ff-7310-46dd-b9eb-ac3253c6d199",
+          "name": "加班費",
+          "icon": "schedule",
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "id": "601d8b05-a053-4137-a8ec-8965d5733257",
+      "name": "投資收益",
+      "icon": "trending_up",
+      "sortOrder": 1,
+      "type": "INCOME",
+      "children": [
+        {
+          "id": "7fe494bf-f019-4aef-98af-c8d86485f157",
+          "name": "股息",
+          "icon": "paid",
+          "sortOrder": 0
+        },
+        {
+          "id": "9a2dcdb1-98f8-43a8-823e-4178693bcf02",
+          "name": "黃金收益",
+          "icon": "trending_up",
+          "sortOrder": 0
+        },
+        {
+          "id": "aef31ab5-3e10-471c-8914-c33234b3e883",
+          "name": "利息收入",
+          "icon": "percent",
+          "sortOrder": 1
+        },
+        {
+          "id": "53eee7ca-f686-484e-a3d1-116c7d0c6180",
+          "name": "股票收益",
+          "icon": "trending_up",
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "id": "f552d3c9-23fe-4575-9707-447ba9f2cf9b",
+      "name": "業外收入",
+      "icon": "add_card",
+      "sortOrder": 2,
+      "type": "INCOME",
+      "children": [
+        {
+          "id": "cda18731-c48d-43f2-b6a6-41a4d5acf5e9",
+          "name": "兼職/接案",
+          "icon": "work",
+          "sortOrder": 0
+        },
+        {
+          "id": "423e6dd2-df9d-4ba7-a33d-423c94a9ca2d",
+          "name": "退款/回饋",
+          "icon": "cached",
+          "sortOrder": 1
+        },
+        {
+          "id": "259d0f7f-10d7-4379-bbd6-adc4723e9e8f",
+          "name": "禮金收入",
+          "icon": "redeem",
+          "sortOrder": 2
+        }
+      ]
+    },
+    {
+      "id": "51554755-0a55-4d42-b542-4ed9ff939f33",
+      "name": "其他收入",
+      "icon": "more_horiz",
+      "sortOrder": 3,
+      "type": "INCOME",
+      "children": [
+        {
+          "id": "b994138f-faa4-4b7f-8a7f-3c0124440d62",
+          "name": "中獎/發票",
+          "icon": "confirmation_number",
+          "sortOrder": 0
+        },
+        {
+          "id": "d497981a-3392-4577-8ca2-773219f8c381",
+          "name": "雜項收入",
+          "icon": "category",
+          "sortOrder": 1
+        },
+        {
+          "id": "4e444ec5-f3ef-4504-a49b-e5572ffab6c9",
+          "name": "其他收入",
+          "icon": "paid",
+          "sortOrder": 2
+        }
+      ]
+    }
+  ]
+}

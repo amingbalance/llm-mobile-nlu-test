@@ -1,0 +1,220 @@
+{
+  "mode" : "R2",
+  "cold_start_ms" : 54,
+  "frozen_today" : "2026-09-15",
+  "env" : {
+    "xcode" : "2660 (17F113)",
+    "os_build" : "23G90",
+    "system_prompt_placement" : "instructions",
+    "cloud_fallback_disabled_how" : "FoundationModels SystemLanguageModel is on-device only by API design (no cloud/PCC path exists); network reachability at run start recorded in network_reachable_during_run",
+    "accounts_count" : 21,
+    "categories_count" : 65,
+    "r2_schema_omitted_fields" : [
+      "confidence",
+      "normalized_text",
+      "original_text"
+    ],
+    "framework" : "FoundationModels (SystemLanguageModel.default, on-device)",
+    "device" : "iPhone17,2 (iPhone 16 Pro Max)",
+    "model_id_or_availability" : "availability=available; framework exposes no model version API",
+    "session_policy" : "new LanguageModelSession(instructions:) per run; session creation and schema compile excluded from latency_ms",
+    "runs_per_case" : 1,
+    "os" : "iOS 26.6.2",
+    "r2_date_resolver" : "ChineseDateResolver.swift, today fixed to 2026-09-15, week starts Monday; supports 昨天/前天/大前天/明天/後天、N天前後、(上上|上|這|本|下)(週|星期|禮拜)X、單獨 週X=最近一次(含今天)、M/D、M月D日、YYYY-MM-DD、(上|這|下)個月N號、N號、中文數字",
+    "system_prompt_chars" : 3434,
+    "sdk" : "iphoneos26.5",
+    "system_prompt_sha256" : "ab05290577ffa28e39a8309e7ca0d8fbbbc3a80128144ebd3e312f298ab3a519",
+    "chip_note" : "A18 Pro",
+    "network_reachable_during_run" : true,
+    "enum_source" : "dev_accounts/dev_categories JSON not present in package; account (21) and category (65) enums parsed programmatically from system_prompt_zh-TW.txt (account names strip trailing currency parentheses, per prompt note 括號內為幣別)",
+    "decoding" : {
+      "sampling" : "greedy (GenerationOptions.SamplingMode.greedy)",
+      "temperature" : 0,
+      "includeSchemaInPrompt" : true,
+      "includeSchemaNote" : "preflight error: unsupportedLanguageOrLocale",
+      "maximumResponseTokens" : 512
+    }
+  },
+  "started_at" : "2026-09-14T23:31:08Z",
+  "finished_at" : "2026-09-14T23:31:08Z",
+  "suite_version" : "2026-09-14",
+  "cold_start_note" : "本次 app 啟動第一次建 session（凍結 prompt 為 instructions）到收到短 prompt「測試」完整回應的 wall-clock；每次啟動只量一次",
+  "runs" : [
+    {
+      "case_id" : "c1",
+      "raw_output" : "",
+      "parsed" : {
+        "stock" : null,
+        "amount" : null,
+        "to_account" : null,
+        "date" : null,
+        "date_text" : null,
+        "account" : null,
+        "currency" : null,
+        "note" : null,
+        "from_account" : null,
+        "intent" : null,
+        "price" : null,
+        "category" : null
+      },
+      "json_valid" : false,
+      "run" : 1,
+      "error" : "unsupportedLanguageOrLocale",
+      "latency_ms" : 2
+    },
+    {
+      "case_id" : "c2",
+      "raw_output" : "",
+      "parsed" : {
+        "stock" : null,
+        "amount" : null,
+        "to_account" : null,
+        "date" : null,
+        "date_text" : null,
+        "account" : null,
+        "currency" : null,
+        "note" : null,
+        "from_account" : null,
+        "intent" : null,
+        "price" : null,
+        "category" : null
+      },
+      "json_valid" : false,
+      "run" : 1,
+      "error" : "unsupportedLanguageOrLocale",
+      "latency_ms" : 1
+    },
+    {
+      "case_id" : "c3",
+      "raw_output" : "",
+      "parsed" : {
+        "stock" : null,
+        "amount" : null,
+        "to_account" : null,
+        "date" : null,
+        "date_text" : null,
+        "account" : null,
+        "currency" : null,
+        "note" : null,
+        "from_account" : null,
+        "intent" : null,
+        "price" : null,
+        "category" : null
+      },
+      "json_valid" : false,
+      "run" : 1,
+      "error" : "unsupportedLanguageOrLocale",
+      "latency_ms" : 1
+    },
+    {
+      "case_id" : "c4",
+      "raw_output" : "",
+      "parsed" : {
+        "stock" : null,
+        "amount" : null,
+        "to_account" : null,
+        "date" : null,
+        "date_text" : null,
+        "account" : null,
+        "currency" : null,
+        "note" : null,
+        "from_account" : null,
+        "intent" : null,
+        "price" : null,
+        "category" : null
+      },
+      "json_valid" : false,
+      "run" : 1,
+      "error" : "unsupportedLanguageOrLocale",
+      "latency_ms" : 4
+    },
+    {
+      "case_id" : "c5",
+      "raw_output" : "",
+      "parsed" : {
+        "stock" : null,
+        "amount" : null,
+        "to_account" : null,
+        "date" : null,
+        "date_text" : null,
+        "account" : null,
+        "currency" : null,
+        "note" : null,
+        "from_account" : null,
+        "intent" : null,
+        "price" : null,
+        "category" : null
+      },
+      "json_valid" : false,
+      "run" : 1,
+      "error" : "unsupportedLanguageOrLocale",
+      "latency_ms" : 2
+    },
+    {
+      "case_id" : "c6",
+      "raw_output" : "",
+      "parsed" : {
+        "stock" : null,
+        "amount" : null,
+        "to_account" : null,
+        "date" : null,
+        "date_text" : null,
+        "account" : null,
+        "currency" : null,
+        "note" : null,
+        "from_account" : null,
+        "intent" : null,
+        "price" : null,
+        "category" : null
+      },
+      "json_valid" : false,
+      "run" : 1,
+      "error" : "unsupportedLanguageOrLocale",
+      "latency_ms" : 3
+    },
+    {
+      "case_id" : "c7",
+      "raw_output" : "",
+      "parsed" : {
+        "stock" : null,
+        "amount" : null,
+        "to_account" : null,
+        "date" : null,
+        "date_text" : null,
+        "account" : null,
+        "currency" : null,
+        "note" : null,
+        "from_account" : null,
+        "intent" : null,
+        "price" : null,
+        "category" : null
+      },
+      "json_valid" : false,
+      "run" : 1,
+      "error" : "unsupportedLanguageOrLocale",
+      "latency_ms" : 1
+    },
+    {
+      "case_id" : "c8",
+      "raw_output" : "",
+      "parsed" : {
+        "stock" : null,
+        "amount" : null,
+        "to_account" : null,
+        "date" : null,
+        "date_text" : null,
+        "account" : null,
+        "currency" : null,
+        "note" : null,
+        "from_account" : null,
+        "intent" : null,
+        "price" : null,
+        "category" : null
+      },
+      "json_valid" : false,
+      "run" : 1,
+      "error" : "unsupportedLanguageOrLocale",
+      "latency_ms" : 2
+    }
+  ]
+}

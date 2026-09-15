@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+
+# ---- Android (android/) ----
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/captures/
+android/.kotlin/
+android/.externalNativeBuild/
+android/.cxx/
+# Android Studio 若直接開 repo 根目錄會在這裡留下的東西
+.gradle/
+.idea/
+.kotlin/
+build/
+local.properties
+*.iml
+
+# ---- iOS (ios/) ----
+ios/**/xcuserdata/
+ios/**/*.xcuserstate
+ios/DerivedData/
+ios/build/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# 拉結果檔時的暫存
+results/**/_pull/
+
+# 本機工具輸出
+*.log

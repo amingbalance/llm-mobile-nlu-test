@@ -1,0 +1,234 @@
+{
+  "exported_at": "2026-08-22",
+  "source": "app.aming.balance.dev (DB v38)",
+  "note": "帳戶名稱已匿名化（同字數虛構銀行名）；已去除 creditLimit/dueDate/loanPrincipal/loanTermMonths/interestRate/notes 等個人財務欄位，只保留產生 prompt 清單與 enum 所需欄位",
+  "groups": [
+    {
+      "id": "14133021-f6e9-4e9a-83c0-f0fb74ac8ddf",
+      "name": "現金",
+      "sortOrder": 0,
+      "defaultKey": "DEFAULT_CASH"
+    },
+    {
+      "id": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "name": "存款",
+      "sortOrder": 1,
+      "defaultKey": "DEFAULT_DEPOSIT"
+    },
+    {
+      "id": "cf33bce8-0318-4afe-b393-f98089feff0b",
+      "name": "證券",
+      "sortOrder": 2,
+      "defaultKey": "DEFAULT_STOCK"
+    },
+    {
+      "id": "fed0a405-0708-4d5d-8a03-45715f0e5b6c",
+      "name": "貸款",
+      "sortOrder": 3,
+      "defaultKey": "DEFAULT_LOAN"
+    },
+    {
+      "id": "fa397190-d16c-4ba9-b10e-1bbf461d7636",
+      "name": "信用卡",
+      "sortOrder": 4,
+      "defaultKey": "DEFAULT_CREDIT_CARD"
+    },
+    {
+      "id": "f0d6df24-178d-499e-b554-080997aed8e7",
+      "name": "黃金",
+      "sortOrder": 5,
+      "defaultKey": "DEFAULT_GOLD"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "3bafa360-7e73-4bdd-9419-055d90d8f4e4",
+      "name": "北辰銀",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "3961f3bc-53cc-4f5b-b1c6-1b423e4e7db6",
+      "name": "北辰銀-交割",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "f438ff00-976b-4ed3-bb18-88252828bbd4",
+      "name": "北辰銀-美金",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "USD"
+    },
+    {
+      "id": "2e7cab74-af22-4a87-9b63-4ae3c7e0581f",
+      "name": "郵儲",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "b2cc0bcf-000a-4887-9cdf-1e2ca3fee58c",
+      "name": "四海商銀",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "284da0e7-325d-479b-8892-5599794545dd",
+      "name": "京銀",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "7cc0e4c1-c315-4c94-b6bf-a032ca6b8363",
+      "name": "東海銀",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "9193d4f6-8dcc-4c89-aa5c-e0235e811cfe",
+      "name": "青松銀",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "49b7c87d-f8d1-453e-8c10-c9c13480e354",
+      "name": "南星銀",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "d2a0eeb9-f63d-42b1-a5cb-c1bd4d78a561",
+      "name": "南星銀-美金",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "USD"
+    },
+    {
+      "id": "e881695f-430c-4e24-8a3f-e135bab25a1a",
+      "name": "西嶺銀",
+      "groupId": "cb60b633-1a37-42d3-862c-0acee1997515",
+      "groupName": "存款",
+      "type": "BANK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "51afb4cb-3d5f-4ce1-b763-0d7ae8a508bc",
+      "name": "青松信用卡",
+      "groupId": "fa397190-d16c-4ba9-b10e-1bbf461d7636",
+      "groupName": "信用卡",
+      "type": "CREDIT_CARD",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "4ebe6221-8af0-4c64-8ac2-4b8578ed7cca",
+      "name": "西嶺信用卡",
+      "groupId": "fa397190-d16c-4ba9-b10e-1bbf461d7636",
+      "groupName": "信用卡",
+      "type": "CREDIT_CARD",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "d8f950b8-d910-4213-9dd5-4c63e68a5af3",
+      "name": "南星信用卡",
+      "groupId": "fa397190-d16c-4ba9-b10e-1bbf461d7636",
+      "groupName": "信用卡",
+      "type": "CREDIT_CARD",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "39e77f50-5e73-494f-afad-d2c2675595e4",
+      "name": "北辰信用卡",
+      "groupId": "fa397190-d16c-4ba9-b10e-1bbf461d7636",
+      "groupName": "信用卡",
+      "type": "CREDIT_CARD",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "3f0e94e3-4693-4b61-986f-963e6c4cc2f0",
+      "name": "東海信用卡",
+      "groupId": "fa397190-d16c-4ba9-b10e-1bbf461d7636",
+      "groupName": "信用卡",
+      "type": "CREDIT_CARD",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "bdadc9da-ce65-41c9-95bd-5a3909c773be",
+      "name": "青松黃金存摺",
+      "groupId": "f0d6df24-178d-499e-b554-080997aed8e7",
+      "groupName": "黃金",
+      "type": "GOLD",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "25e1213e-1dce-4798-b4e2-85b99e2977fc",
+      "name": "東海房貸",
+      "groupId": null,
+      "groupName": null,
+      "type": "LOAN",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "b28df23a-0563-4f88-a712-485ed3dfe35e",
+      "name": "青松證-台股",
+      "groupId": "cf33bce8-0318-4afe-b393-f98089feff0b",
+      "groupName": "證券",
+      "type": "STOCK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "c7cc1a22-d19c-474a-b93c-0f1c70cbbfea",
+      "name": "北辰證-台股",
+      "groupId": "cf33bce8-0318-4afe-b393-f98089feff0b",
+      "groupName": "證券",
+      "type": "STOCK",
+      "status": "ACTIVE",
+      "currencyCode": "TWD"
+    },
+    {
+      "id": "121d935a-90de-4163-9ed6-acc8334ab287",
+      "name": "青松證-美股",
+      "groupId": "cf33bce8-0318-4afe-b393-f98089feff0b",
+      "groupName": "證券",
+      "type": "STOCK",
+      "status": "ACTIVE",
+      "currencyCode": "USD"
+    }
+  ]
+}

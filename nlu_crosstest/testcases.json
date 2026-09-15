@@ -1,0 +1,126 @@
+{
+ "version": "2026-09-14",
+ "frozen_today": "2026-09-15",
+ "system_prompt_file": "system_prompt_zh-TW.txt",
+ "decoding": {
+  "temperature": 0.0,
+  "topK": 1,
+  "maxOutputTokens": 512
+ },
+ "scoring": {
+  "not_scored": [
+   "confidence",
+   "normalized_text",
+   "note"
+  ],
+  "date_rule": "沒講日期 → null;模型填了當天日期記輕微違規(不影響入帳)分開統計",
+  "runs_per_case": 3,
+  "report": "每題 3 次取多數決記正確性;延遲取中位數;3 次結果不一致(flip)另計"
+ },
+ "cases": [
+  {
+   "id": "c1",
+   "input": "午餐花了一百二 用現金",
+   "expected": {
+    "intent": "ADD_EXPENSE",
+    "slots": {
+     "amount": 120,
+     "account": null,
+     "category": "飲食>午餐",
+     "date": null
+    }
+   },
+   "notes": "amount:口語數字臨界案例(Android 曾輸出 102,計為 amount 錯)。account:清單沒有現金帳戶,必須 null,填任何名稱都算錯。"
+  },
+  {
+   "id": "c2",
+   "input": "薪水入帳五萬八",
+   "expected": {
+    "intent": "ADD_INCOME",
+    "slots": {
+     "amount": 58000,
+     "account": null,
+     "category": "薪資>本薪",
+     "date": null
+    }
+   }
+  },
+  {
+   "id": "c3",
+   "input": "台積電改成一千零八十五",
+   "expected": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "slots": {
+     "stock": "台積電",
+     "price": 1085
+    }
+   }
+  },
+  {
+   "id": "c4",
+   "input": "00878 收在二十一塊九",
+   "expected": {
+    "intent": "UPDATE_STOCK_PRICE",
+    "slots": {
+     "stock": "00878",
+     "price": 21.9
+    }
+   },
+   "notes": "E2B 曾錯判成 UPDATE_GOLD_PRICE,此題是 intent 分辨力指標。"
+  },
+  {
+   "id": "c5",
+   "input": "金價一盎司三千三百二十美金",
+   "expected": {
+    "intent": "UPDATE_GOLD_PRICE",
+    "slots": {
+     "price": 3320,
+     "currency": "USD",
+     "amount": null
+    }
+   },
+   "notes": "amount 應為 null(price 才是價格欄),多填 amount 記 slot 噪音。"
+  },
+  {
+   "id": "c6",
+   "input": "上週五看電影三百六 刷南星卡",
+   "expected": {
+    "intent": "ADD_EXPENSE",
+    "slots": {
+     "amount": 360,
+     "account": "南星信用卡",
+     "category": "娛樂>影音/遊戲",
+     "date": "2026-09-11"
+    }
+   },
+   "notes": "今天凍結為 2026-09-15(星期二),上週五 = 2026-09-11。差一天(常見錯:2026-09-12)計 date 錯。"
+  },
+  {
+   "id": "c7",
+   "input": "從西嶺轉兩萬三到現金",
+   "expected": {
+    "intent": "ADD_TRANSFER",
+    "slots": {
+     "amount": 23000,
+     "from_account": "西嶺銀",
+     "to_account": null
+    }
+   },
+   "notes": "to_account 必須 null(清單無現金帳戶)。"
+  },
+  {
+   "id": "c8",
+   "input": "股息入帳一千五百塊",
+   "expected": {
+    "intent": "ADD_INCOME",
+    "slots": {
+     "amount": 1500,
+     "account": null,
+     "category": "投資收益>股息",
+     "date": null
+    }
+   },
+   "notes": "Android 基準未跑過此句(無 baseline 延遲),正確性照 expected 評。"
+  }
+ ]
+}
