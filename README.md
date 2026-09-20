@@ -16,7 +16,7 @@
 ## 1. 一頁結論
 
 **Android Gemma 4 E4B + structured output 是可上線的形態**：8 題 7 對（唯一錯的口語數字「一百二」由 STT 層解決，實質全對）、單句 3.7–4.0 s、72 次推論零 flip。
-iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 4/8，開 guided generation 反而 0/8；而且 **OS 升級會換模型、改變行為**（iOS 26 → 27 同題答案不同、語言閘門行為不同）。
+iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 3–4/8，開 guided generation 反而 0–1/8；而且 **OS 升級會換模型、換手機也會換模型**（iOS 26 → 27 同題答案不同；iPhone 18 Pro Max 被系統分配到 AFM 3 Core Advanced 變體，快到約 2 s，但半數輸出不照 schema 給 `slots`）。
 
 ### 2 平台 × 2 模式 矩陣（每題 3 次多數決，全對題數 @ 中位延遲）
 
@@ -25,31 +25,37 @@ iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 4/8，開 guided 
 | **Android** Gemma 4 E4B（Pixel 11 Pro XL, Android 17, TPU） | **6/8** @ 3.2 s，零 flip | **7/8** @ 3.7–4.0 s，零 flip |
 | **iOS 26.6.2** Apple FM（iPhone 16 Pro Max, A18 Pro） | 4/8 @ 3.9 s（偏差放法，見下） | 0/8 |
 | **iOS 27.0** Apple FM（同一台，升級 OS） | 4/8 @ 5.5 s | 0/8 |
+| **iOS 27.0** Apple FM **Core Advanced**（iPhone 18 Pro Max，09-20 補測） | 3/8 @ 2.0 s（24 次中 12 次缺 `slots`） | 1/8 @ 2.7 s |
 
 ### R1 逐項對照
 
-| | Android Gemma 4 E4B | iOS 26.6.2 | iOS 27.0 |
-|---|---|---|---|
-| prompt 放法 | spec（`SystemInstruction`） | **偏差**（`input_wrapped`；spec 放法被語言閘門擋） | spec（`instructions`） |
-| 全對 | **6/8** | 4/8 | 4/8 |
-| 延遲中位 | 3.2 s（08-22 手測 3.0–5.5 s） | 3.9 s | 5.5 s |
-| 決定性（temp=0） | 官方輪零 flip；手測曾見 102/120 抖動 | 零 flip | 零 flip |
-| JSON 合法 | 100% | 100% | 100%（多包 ```json 圍欄） |
-| c1「一百二」 | 102 ✗ | **120 ✓** | 112 ✗ |
-| c4「00878 收在二十一塊九」 | **✓** | ✗（判成支出） | ✗（判成金價 / UNKNOWN） |
-| c7「轉到現金」（清單無此帳戶） | R1 硬塞 ✗ → **R2 enum 約束修好 ✓** | 硬塞「現金」✗ | 硬塞「現金」✗ |
-| c8「股息入帳」 | ✓ | ✓ | ✗（判成改股價） |
+| | Android Gemma 4 E4B | iOS 26.6.2（16 Pro Max） | iOS 27.0（16 Pro Max） | iOS 27.0（**18 Pro Max**，Core Advanced） |
+|---|---|---|---|---|
+| prompt 放法 | spec（`SystemInstruction`） | **偏差**（`input_wrapped`；spec 放法被語言閘門擋） | spec（`instructions`） | spec（`instructions`） |
+| 全對 | **6/8** | 4/8 | 4/8 | 3/8 |
+| 延遲中位 | 3.2 s（08-22 手測 3.0–5.5 s） | 3.9 s | 5.5 s | **2.0 s**（輸出只有 47% 長） |
+| 每字延遲 | 11.4 ms | 14.6 ms | 13.6 ms | 10.4 ms |
+| 決定性（temp=0） | 官方輪零 flip；手測曾見 102/120 抖動 | 零 flip | 零 flip | 零 flip |
+| JSON 合法 | 100% | 100% | 100%（多包 ```json 圍欄） | 21/24（c6 壞 JSON） |
+| 照 schema 輸出 `slots` | 24/24 | 24/24 | 24/24 | **12/24** |
+| c1「一百二」 | 102 ✗ | **120 ✓** | 112 ✗ | 讀成 120，但沒輸出 slots ✗ |
+| c4「00878 收在二十一塊九」 | **✓** | ✗（判成支出） | ✗（判成金價 / UNKNOWN） | **✓**（iOS 首次答對） |
+| c7「轉到現金」（清單無此帳戶） | R1 硬塞 ✗ → **R2 enum 約束修好 ✓** | 硬塞「現金」✗ | 硬塞「現金」✗ | 沒輸出 slots ✗ |
+| c8「股息入帳」 | ✓ | ✓ | ✗（判成改股價） | 沒輸出 slots ✗ |
+
+> iPhone 16 Pro Max 與 18 Pro Max 之間同時差了硬體、SDK、OS build、量測日與**模型變體**，不是單一變因的比較；細節見 [`results/ios/summary_iPhone18ProMax.md`](results/ios/summary_iPhone18ProMax.md)。
 
 ### 平台層事實（與模型無關，但影響產品）
 
 1. **iOS 26 語言閘門**：FoundationModels 推論前會用 `NLLanguageRecognizer` 判主要語言，這份 prompt 因大量 ASCII 識別字被判成印尼文，`instructions` / 前置兩種 spec 放法都在 2 ms 內丟 `unsupportedLanguageOrLocale`。iOS 27 放行。把輸入句放在最前面（`input_first` / `input_wrapped`）可繞過，結果檔有標注偏差。
-2. **Apple FM context ≈ 4096 token**：schema 注入 prompt 就爆；Android `tokenLimit` 8192 沒這問題。
+2. **Apple FM context 依變體而定**：iPhone 16 Pro Max 約 4096 token，schema 注入 prompt 就爆；iPhone 18 Pro Max 的 Core Advanced 為 8192。Android `tokenLimit` 8192。
 3. **iOS 27 輸出風格改變**（```json 圍欄 + 縮排，字元 +50%），吐字速率沒變，但單句慢約 1.6 s。
 4. **iOS guided generation 與 prompt 內的 JSON schema 敘述互相干擾**：iOS 26 optional enum 幾乎全 null，iOS 27 改成硬塞清單值或 `note` 欄位重複到 512 token 上限。要用 guided 就要為它重寫 prompt（v2）。
 5. **模型跟著 OS 換，沒有版本 API 可偵測**：iOS 26→27 同題 c1 120→112、c8 ✓→✗、c2 分類 ✗→✓。這套測試包正好當每次 OS 升級的回歸套件。
-6. 口語數字「一百二」三個模型三個答案（102 / 120 / 112）：**金額數字正規化交給 STT 或程式，不交給 LLM**。
+6. **模型變體由系統依裝置分配，app 不能選**：iOS 27 SDK 新增唯讀的 `SystemLanguageModel.variant`（`core3` / `coreAdvanced3`）。iPhone 18 Pro Max 與 M3 Mac 是 `coreAdvanced3`，輸出習慣完全不同（單行 JSON、無圍欄、半數不給 `slots`）；為 iOS 26 語言閘門設計的「輸入在前」偏差放法在它上面 0/8。同一版 app 要同時面對兩種模型。
+7. 口語數字「一百二」三個模型三個答案（102 / 120 / 112）：**金額數字正規化交給 STT 或程式，不交給 LLM**。
 
-完整數據與逐題表：[`results/FINAL_VERDICT.md`](results/FINAL_VERDICT.md)、[`results/ios/`](results/ios/)、[`results/android/`](results/android/)。
+完整數據與逐題表：[`results/FINAL_VERDICT.md`](results/FINAL_VERDICT.md)、[`results/ios/summary_iPhone18ProMax.md`](results/ios/summary_iPhone18ProMax.md)、[`results/ios/`](results/ios/)、[`results/android/`](results/android/)。
 
 ---
 
@@ -67,7 +73,7 @@ iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 4/8，開 guided 
 ├── results/
 │   ├── FINAL_VERDICT.md            最終結論（2×2 矩陣、逐題分析）
 │   ├── android/                    Android 官方輪結果 JSON（R1 / R2 / R2_noschema）
-│   └── ios/                        iOS 26.6.2 / 27.0 結果 JSON + REPORT_*.md + summary_*.md + 語言閘門探測
+│   └── ios/                        iPhone 16 Pro Max（iOS 26.6.2 / 27.0）與 iPhone 18 Pro Max（iOS 27.0）結果 JSON + REPORT_*.md + summary_*.md + 語言閘門探測
 ├── docs/
 │   ├── voice_intent_gemma_handoff.md      需求端 handoff：intent 定義、JSON 約定、app 決策層
 │   └── gemma4_feasibility_handoff.md      Android 可行性結案報告：技術路線、延遲、prompt 設計、導入建議
@@ -106,8 +112,8 @@ iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 4/8，開 guided 
 
 ### iOS（詳見 [`ios/README.md`](ios/README.md)）
 
-1. **裝置**：支援 Apple Intelligence 的 iPhone（A17 Pro 以上；實測 iPhone 16 Pro Max），iOS 26 以上，設定裡 **Apple Intelligence 已開啟且模型下載完成**。模擬器可以編譯，但數據只在真機上有意義。
-2. Xcode 26 以上開 `ios/llm_test.xcodeproj`，到 Signing & Capabilities 換成自己的 Team（bundle id `app.aming.llm-test` 也可能要改）。
+1. **裝置**：支援 Apple Intelligence 的 iPhone（A17 Pro 以上；實測 iPhone 16 Pro Max、iPhone 18 Pro Max），iOS 26 以上，設定裡 **Apple Intelligence 已開啟且模型下載完成**。模擬器可以編譯，但數據只在真機上有意義。
+2. **Xcode 27 以上**（harness 用到 iOS 27 SDK 的 `SystemLanguageModel.variant`，Xcode 26 編不過；仍可裝到 iOS 26 裝置）開 `ios/llm_test.xcodeproj`，到 Signing & Capabilities 換成自己的 Team（bundle id `app.aming.llm-test` 也可能要改）。
 3. 跑到手機上：「快速測試」tab 是單句解析＋計時；「對照測試」tab 是正式 harness（R1 / R2、放法、次數可選），結果寫在 app 的 Documents（可在「檔案」app 看到）。
 4. 無人值守 + 拉結果：
    ```sh
@@ -115,6 +121,7 @@ iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 4/8，開 guided 
    xcrun devicectl device process launch --terminate-existing --device <UDID> app.aming.llm-test \
        --autorun R1,R2 --runs 3 --placement instructions          # iOS 26.x 請改 --placement input_wrapped
    ios/tools/pull_results.sh <UDID>                                # 結果 JSON 拉回 results/ios/
+   # 只想知道這台被分配到哪個模型變體：把 --autorun … 換成 --status-only，再看 Documents/autorun_status.json 的 modelVariant
    ```
 5. 評分（在 repo 根目錄；只需 Python 3.8+ 標準函式庫，Mac 上也可 `uv run tools/score.py …`）：
    ```sh
@@ -140,8 +147,9 @@ iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 4/8，開 guided 
 
 - 需要 **Apple Intelligence 已開啟**，且裝置語言 / Siri 語言在支援清單內（繁中台灣有支援）。`SystemLanguageModel.default.availability` 會回 `deviceNotEligible` / `appleIntelligenceNotEnabled` / `modelNotReady`；OS 剛升級後模型會重新下載，harness 會每 10 秒重查最多 15 分鐘。
 - **iOS 26.x 會用語言閘門擋掉這份 prompt**（判成印尼文）。要在 iOS 26 跑，`--placement` 用 `input_wrapped`（或 `input_first`），並在報告裡註明偏差；iOS 27 用 spec 的 `instructions`。
-- **Context 約 4096 token**：`includeSchemaInPrompt=true` 加 65 個分類 enum 會爆；harness 有預檢，爆了自動改 `false` 並記錄。
-- **沒有模型版本 API**：只能記 OS build。OS 升級 = 模型可能換，結果要重跑。
+- **Context 依變體而定**（`core3` 推測 4096、`coreAdvanced3` 8192）：4096 的機器上 `includeSchemaInPrompt=true` 加 65 個分類 enum 會爆；harness 有預檢，爆了自動改 `false` 並記錄。
+- **模型版本只能間接得知**：iOS 27 起可讀 `SystemLanguageModel.variant`（唯讀，app 不能選），結果檔 `env.model_id_or_availability` 會記；iOS 26 只能記 OS build。OS 升級或換機型 = 模型可能換，結果要重跑。
+- **Core Advanced（iPhone 18 Pro Max）的失分模式是格式**：半數回應 JSON 合法但沒有 `slots` 物件、c6 出現壞 JSON；「輸入在前」偏差放法在它上面 0/8，iOS 27 請一律用 `instructions`。
 - greedy 完全決定性（同 OS 上午 / 下午逐字相同），但升級後幾小時內背景負載會讓延遲偏高，正式數字建議升級後閒置幾小時再量。
 - 每次推論都要**全新 `LanguageModelSession`**，殘留對話會汙染結果。
 - 「快速測試」tab 的 `ExpenseParser` 用的是另一套簡化 schema / prompt，與對照測試無關，只是最早的速度探測。

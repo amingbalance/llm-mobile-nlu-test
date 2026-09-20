@@ -27,6 +27,8 @@ struct CrossTestView: View {
     ///   --autorun R1,R2   --runs 3   --no-schema-in-prompt
     private func autorunIfRequested() async {
         let args = ProcessInfo.processInfo.arguments
+        // --status-only：只寫狀態檔（含模型變體）就結束，不跑測試
+        if args.contains("--status-only") { runner.writeAutorunStatus(phase: "status_only"); return }
         guard let i = args.firstIndex(of: "--autorun"), i + 1 < args.count else { return }
         let modes = args[i + 1].split(separator: ",").compactMap { CrossTestRunner.Mode(rawValue: String($0)) }
         if let j = args.firstIndex(of: "--runs"), j + 1 < args.count, let n = Int(args[j + 1]) { runner.runsPerCase = max(1, min(5, n)) }
@@ -71,6 +73,7 @@ struct CrossTestView: View {
             row("裝置", CrossTestRunner.machineIdentifier() + " · " + CrossTestRunner.marketingName(CrossTestRunner.machineIdentifier()), ok: nil)
             row("OS", ProcessInfo.processInfo.operatingSystemVersionString, ok: nil)
             row("模型", runner.availabilityText, ok: runner.availabilityText == "available")
+            row("變體", CrossTestRunner.describeModelVariant(), ok: nil)
             if let ms = runner.coldStartMs { row("冷啟動", "\(ms) ms", ok: nil) }
         }
     }

@@ -111,6 +111,19 @@ final class CrossTestRunner {
         }
     }
 
+    /// iOS 27 起可讀取系統分配的模型變體（core3 / coreAdvanced3）、context 大小與能力；變體唯讀，app 無法指定
+    static func describeModelVariant() -> String {
+        if #available(iOS 27.0, *) {
+            let m = SystemLanguageModel.default
+            let c = m.capabilities
+            let caps = [c.contains(.vision) ? "vision" : nil, c.contains(.guidedGeneration) ? "guidedGeneration" : nil,
+                        c.contains(.reasoning) ? "reasoning" : nil, c.contains(.toolCalling) ? "toolCalling" : nil].compactMap { $0 }.joined(separator: ",")
+            let kind = m.variant == .coreAdvanced3 ? "coreAdvanced3" : (m.variant == .core3 ? "core3" : "other")
+            return "variant=\(kind) (\(m.variant.displayName)); contextSize=\(m.contextSize); capabilities=[\(caps)]"
+        }
+        return "variant API unavailable before iOS 27"
+    }
+
     // MARK: - 執行
 
     private var options: GenerationOptions {
@@ -346,7 +359,7 @@ final class CrossTestRunner {
             framework: "FoundationModels (SystemLanguageModel.default, on-device)",
             sdk: (info["DTSDKName"] as? String) ?? "?",
             xcode: "\((info["DTXcode"] as? String) ?? "?") (\((info["DTXcodeBuild"] as? String) ?? "?"))",
-            model_id_or_availability: "availability=\(Self.describeAvailability()); framework exposes no model version API",
+            model_id_or_availability: "availability=\(Self.describeAvailability()); \(Self.describeModelVariant())",
             system_prompt_placement: placement.rawValue,
             placement_note: placementNote,
             system_prompt_chars: prompt.count,
@@ -377,7 +390,8 @@ final class CrossTestRunner {
             let data = try enc.encode(file)
             let osTag = file.env.os.replacingOccurrences(of: "iOS ", with: "iOS")
             let variant = (mode == .R2 && file.env.decoding.includeSchemaInPrompt == false) ? "_noschema" : ""
-            let name = "results_\(osTag)_\(mode.rawValue)\(variant)_\(placement.rawValue)_\(Self.stamp()).json"
+            let deviceTag = Self.machineIdentifier().replacingOccurrences(of: ",", with: "-")
+            let name = "results_\(deviceTag)_\(osTag)_\(mode.rawValue)\(variant)_\(placement.rawValue)_\(Self.stamp()).json"
             let url = Self.documentsDir.appendingPathComponent(name)
             try data.write(to: url, options: .atomic)
             addLog("已存檔 \(name)（\(file.runs.count) runs）")
@@ -395,6 +409,9 @@ final class CrossTestRunner {
             "time": Self.iso8601(.now),
             "os": v,
             "availability": Self.describeAvailability(),
+            "modelVariant": Self.describeModelVariant(),
+            "device": Self.machineIdentifier(),
+            "chipNote": Self.chipNote(Self.machineIdentifier()),
             "loadError": loadError ?? "",
             "promptChars": prompt.count,
             "accounts": accounts.count,
@@ -459,11 +476,18 @@ final class CrossTestRunner {
         case "iPhone17,2": return "iPhone 16 Pro Max"
         case "iPhone17,3": return "iPhone 16"
         case "iPhone17,4": return "iPhone 16 Plus"
+        case "iPhone19,7": return "iPhone 18 Pro Max"   // 由 devicectl 的 Marketing Name 確認
         default: return "unknown"
         }
     }
+    /// 晶片行銷名稱沒有公開 API 可查；只有確認過的機型才填名稱，其餘如實記錄核心數與記憶體，不猜。
     static func chipNote(_ id: String) -> String {
-        id.hasPrefix("iPhone17,") && (id.hasSuffix("1") || id.hasSuffix("2")) ? "A18 Pro" : "see device id"
+        let cores = ProcessInfo.processInfo.processorCount
+        let ramGB = Double(ProcessInfo.processInfo.physicalMemory) / 1_073_741_824
+        let hw = "\(cores) cores, \(String(format: "%.1f", ramGB)) GB RAM"
+        let known: [String: String] = ["iPhone17,1": "A18 Pro", "iPhone17,2": "A18 Pro"]
+        if let chip = known[id] { return "\(chip); \(hw)" }
+        return "chip name not exposed by API; \(hw)"
     }
 
     static func networkReachable() async -> Bool? {

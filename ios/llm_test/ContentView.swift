@@ -194,7 +194,7 @@ private struct MetricsView: View {
 
 struct ContentView: View {
     // 帶 --autorun 啟動時直接切到對照測試 tab（TabView 懶載入，不切過去 .task 不會跑）
-    @State private var tab = ProcessInfo.processInfo.arguments.contains("--autorun") ? 1 : 0
+    @State private var tab = (ProcessInfo.processInfo.arguments.contains("--autorun") || ProcessInfo.processInfo.arguments.contains("--status-only")) ? 1 : 0
 
     var body: some View {
         TabView(selection: $tab) {

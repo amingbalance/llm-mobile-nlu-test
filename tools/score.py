@@ -153,8 +153,18 @@ def md_for(path, data, rows):
         out.append(f"| {r['case']} | {r['input']} | {parts_s} | {r['median_ms']} ms | {r['min_ms']}–{r['max_ms']} | {flips} | {r['json_valid']}/{r['runs']} | {errs} |")
         total_ok += r["all_ok"]; total_runs += r["runs"]; total_valid += r["json_valid"]; lats.append(r["median_ms"])
     n = sum(1 for r in rows if not r.get("missing"))
+    # 平均輸出長度與每字延遲；R1 另計「JSON 合法但沒有 slots 物件」（模型只把資訊寫進 normalized_text）與帶 ``` 圍欄的次數
+    all_runs = data["runs"]
+    ok_runs = [r for r in all_runs if not r.get("error")]
+    mean_chars = (sum(len(r.get("raw_output") or "") for r in ok_runs) / len(ok_runs)) if ok_runs else 0
+    med_lat = statistics.median([r["latency_ms"] for r in ok_runs]) if ok_runs else 0
+    extra = f"　平均輸出 {mean_chars:.0f} 字　每字延遲 {med_lat/mean_chars:.1f} ms" if mean_chars else ""
+    if data["mode"] == "R1":
+        no_slots = sum(1 for r in all_runs if r["json_valid"] and '"slots"' not in (r.get("raw_output") or ""))
+        fenced = sum(1 for r in all_runs if "```" in (r.get("raw_output") or ""))
+        extra += f"　缺 slots 物件 {no_slots}/{len(all_runs)}　帶```圍欄 {fenced}/{len(all_runs)}"
     out.append("")
-    out.append(f"**彙總**：全對題數 {total_ok}/{n}　JSON 合法率 {total_valid}/{total_runs}　各題中位延遲的中位數 {int(statistics.median(lats)) if lats else '—'} ms　flip 題數 {sum(1 for r in rows if r.get('flips'))}\n")
+    out.append(f"**彙總**：全對題數 {total_ok}/{n}　JSON 合法率 {total_valid}/{total_runs}　各題中位延遲的中位數 {int(statistics.median(lats)) if lats else '—'} ms　flip 題數 {sum(1 for r in rows if r.get('flips'))}{extra}\n")
     return "\n".join(out)
 
 def md_compare(all_results):
@@ -162,7 +172,11 @@ def md_compare(all_results):
     def lab(d):
         started = d.get("started_at", "") or ""
         # 同 OS/模式/放法可能有多遍（例如升級後立即 vs 數小時後），用開始時間區分（UTC）
-        l = f"{d['env'].get('os','?')} {d['mode']} [{d['env'].get('system_prompt_placement','?')}]"
+        dev = d['env'].get('device', '?')
+        if '(' in dev:   # iOS: "iPhone19,7 (iPhone 18 Pro Max)" → 行銷名稱；Android: "Pixel 11 Pro XL (kodiak, …)" → 括號前
+            inner = dev[dev.index('(')+1:dev.rindex(')')]
+            dev = inner if dev.startswith(("iPhone", "iPad", "Mac")) else dev[:dev.index('(')].strip()
+        l = f"{dev} · {d['env'].get('os','?')} {d['mode']} [{d['env'].get('system_prompt_placement','?')}]"
         if len(started) >= 16: l += f" @{started[11:16]}Z"
         dec = d['env'].get('decoding', {})
         if d['mode'].startswith('R2') and dec.get('includeSchemaInPrompt') is not None:
