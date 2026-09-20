@@ -75,6 +75,7 @@ iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 3–4/8，開 gui
 │   ├── android/                    Android 官方輪結果 JSON（R1 / R2 / R2_noschema）
 │   └── ios/                        iPhone 16 Pro Max（iOS 26.6.2 / 27.0）與 iPhone 18 Pro Max（iOS 27.0）結果 JSON + REPORT_*.md + summary_*.md + 語言閘門探測
 ├── docs/
+│   ├── model_settings.md                  兩平台模型設定對照：實際呼叫的 API 與參數
 │   ├── voice_intent_gemma_handoff.md      需求端 handoff：intent 定義、JSON 約定、app 決策層
 │   └── gemma4_feasibility_handoff.md      Android 可行性結案報告：技術路線、延遲、prompt 設計、導入建議
 ├── tools/
@@ -153,6 +154,20 @@ iOS 的 Apple 裝置端模型在同一份 prompt 下 R1 只有 3–4/8，開 gui
 - greedy 完全決定性（同 OS 上午 / 下午逐字相同），但升級後幾小時內背景負載會讓延遲偏高，正式數字建議升級後閒置幾小時再量。
 - 每次推論都要**全新 `LanguageModelSession`**，殘留對話會汙染結果。
 - 「快速測試」tab 的 `ExpenseParser` 用的是另一套簡化 schema / prompt，與對照測試無關，只是最早的速度探測。
+
+### 模型設定（兩平台實際呼叫的 API）
+
+兩邊都沒有改模型權重，能調的只有選模型、prompt 放法、解碼參數、結構化輸出。完整對照與實際程式碼見 [`docs/model_settings.md`](docs/model_settings.md)。
+
+| 項目 | Android（ML Kit GenAI Prompt API） | iOS（FoundationModels） |
+|---|---|---|
+| 選模型 | `modelConfig { releaseStage = PREVIEW; preference = FULL }` → Gemma 4 E4B | `SystemLanguageModel.default`；變體由系統分配，app 不能選 |
+| system prompt | `SystemInstruction(prompt)` + `TextPart(input)` | `LanguageModelSession(instructions: prompt)` + `respond(to: input)` |
+| 解碼 | `temperature = 0.0f; topK = 1; maxOutputTokens = 512` | `GenerationOptions(sampling: .greedy, temperature: 0, maximumResponseTokens: 512)` |
+| 結構化輸出（R2） | `GenerateTypedContentRequest.Builder(base, VoiceIntentOut::class)` + `includeSchemaInPrompt`，手寫 `GenerableProvider` 動態 enum | `respond(to:schema:includeSchemaInPrompt:options:)`，`DynamicGenerationSchema` 動態 enum |
+| Context 上限 | `getTokenLimit()` = 8192 | `contextSize` = 8192（Core Advanced）；16 Pro Max 約 4096 |
+| Session | 同一 client、每次請求無狀態 | 每次推論新建 `LanguageModelSession` |
+| 其他 | 無重試、無 streaming、其餘解碼參數用預設 | 同左；預設 guardrails |
 
 ### 兩邊共通
 

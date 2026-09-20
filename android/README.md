@@ -9,6 +9,7 @@
 - **ML Kit GenAI Prompt API**（`com.google.mlkit:genai-prompt:1.0.0-beta4`），走 AICore
 - `ModelReleaseStage.PREVIEW` = AICore Developer Preview 的 Gemma 4；`ModelPreference.FAST` = E2B、`FULL` = E4B（本專案定案 E4B）
 - 結構化輸出：prompt 附 schema + few-shot，`temperature=0, topK=1, maxOutputTokens=512`；R2 另用 `generateTypedContentRequest` + 手寫 `GenerableProvider`（動態 enum）
+- 與 iOS 的 API / 參數逐項對照見 [`../docs/model_settings.md`](../docs/model_settings.md)
 - 語音輸入：系統 `SpeechRecognizer`（zh-TW），辨識完直接送解析；文字框也可手動輸入
 
 ## 需求

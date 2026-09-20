@@ -3,6 +3,8 @@
 用 iOS 26 的 **FoundationModels**（`SystemLanguageModel.default`，Apple Intelligence 裝置端模型）跑同一份語音記帳 NLU 題組，
 與 Android Gemma 4 對照。測試設計見 [`../nlu_crosstest/ios_test_design_spec.md`](../nlu_crosstest/ios_test_design_spec.md)。
 
+模型怎麼選、解碼參數、guided generation 怎麼設，以及與 Android 的逐項對照，見 [`../docs/model_settings.md`](../docs/model_settings.md)。
+
 ## 需求
 
 | 項目 | 需求 |
